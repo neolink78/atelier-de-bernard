@@ -8,18 +8,16 @@ import * as paintingsService from "../services/paintings.service"
 const Galery = () => {
   const [selectedTech, setSelectedTech] = useState('Tout')
   const [selectedCategory, setSelectedCategory] = useState('Tout')
-  const [test, setTest] = useState([])
+  const [paintings, setPaintings] = useState([])
 
 const paintingsGetter = async () => {
-  const paintings =await paintingsService.get()
-  setTest(paintings)
+  const paints =await paintingsService.get()
+  setPaintings(paints)
 }
 
   useEffect(() => {
       paintingsGetter()
   },[])
-
-  console.log(test)
 
     return(
         <>
@@ -38,8 +36,8 @@ const paintingsGetter = async () => {
          setSelected={setSelectedCategory}/>
        </div>
      </div>
-     <ShowRoom filter={{technique: selectedTech, category: selectedCategory}} paintings={test}/>
-     <Pagination items={test?.length}/>
+     <ShowRoom filter={{technique: selectedTech, category: selectedCategory}} paintings={paintings}/>
+     <Pagination items={paintings.length}/>
        </>
     )
 }
