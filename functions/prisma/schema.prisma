@@ -11,8 +11,9 @@ model library {
   id          Int     @id @default(autoincrement())
   name        String  @db.VarChar(255)
   price       Decimal @db.Decimal(10, 2)
-  description String?
-  picture     String?
+  description String? @db.VarChar(255)
+  picture     String
+  imageID     String  @unique
   technique   String? @db.VarChar(255)
   category    String? @db.VarChar(255)
 }

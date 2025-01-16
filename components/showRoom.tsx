@@ -2,8 +2,8 @@ import Image from "next/image"
 import { useRouter } from "next/router";
 
 type PaintingType = {
-    url:string
-    title: string
+    picture:string
+    name: string
     technique: string
     category: string
     price: string
@@ -19,8 +19,6 @@ type ShowRoomType = {
 
 
 const ShowRoom = ({filter, paintings}: ShowRoomType) => {
-    console.log(filter)
-    console.log(paintings.length)
     const router= useRouter()
 
     const filterType = (painting: PaintingType) => {
@@ -42,8 +40,8 @@ const ShowRoom = ({filter, paintings}: ShowRoomType) => {
         className="flex flex-col items-center justify-center text-center" 
         
         >
-        <Image src={painting.url} width={300} height={300} alt={painting.title} onClick={() => router.push(`/paintings/${painting.title}`)} className="hover:cursor-pointer"/>
-        <p>{painting.title}</p>
+        <Image src={painting.picture} width={300} height={300} alt={painting.name} onClick={() => router.push(`/paintings/${painting.name}`)} className="hover:cursor-pointer"/>
+        <p>{painting.name}</p>
         <p>{painting.technique}</p>
         <p>{painting.price}€</p>
         </div>

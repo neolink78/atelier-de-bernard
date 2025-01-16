@@ -5,6 +5,7 @@ export const paintingsSchemas = z.object({
     name: z.string(),
     price: z.string().transform((val) => Number(val)),
     description: z.string().max(255),
+    imageID: z.string().optional(),
     technique: z.enum(["Peinture à l'huile", "Fusain", "Pastel"]),
     category: z.enum(["Nature morte", "Paysage", "Portrait"])
 })
