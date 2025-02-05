@@ -28,3 +28,22 @@ export const update = async (painting: Painting) => {
   const paintings = await PaintingsRepository.update(painting)
   return paintings
 }
+
+export const count = async (technique?: string, category?: string) => {
+  const filters: any = {}
+  if (technique !== 'undefined') filters.technique = technique
+  if (category !== 'undefined') filters.category = category
+  const total = await PaintingsRepository.count(filters)
+  return total
+}
+
+export const getByType = async (technique?: string, category?: string, offset?: number) => {
+  const filters: any = {}
+  if (technique !== 'undefined') filters.technique = technique
+  if (category !== 'undefined') filters.category = category
+  if (offset) {
+    offset = (offset - 1) * 12
+  } else offset = 0
+  const paintings = await PaintingsRepository.get(filters, offset, 12)
+  return paintings
+}

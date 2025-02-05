@@ -22,7 +22,7 @@ const Layout = ({children}: Props) => {
         </div>
         <div className='text-center text-[3rem]'>~L&apos;atelier de Bernard~</div>
         <div className='min-h-screen mt-20'>{children}</div>
-        <div className='p-12 bg-slate-400 text-right'>Copyright © 2024 Bernard Resse</div>
+        <div className='p-12 bg-slate-400 text-right'>Copyright © 2025 Bernard Resse</div>
      </div>
     )
 }

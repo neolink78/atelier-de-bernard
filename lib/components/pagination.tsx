@@ -1,6 +1,6 @@
 import LeftArrow from "../icons/leftArrow"
-/* eslint-disable */
-const Pagination = ({items}: any) => {
+
+const Pagination = ({items, page, setPage}: any) => {
     const calculation = () => {
         const totalPages = Math.ceil(items / 12)
         let startPage = Math.max(1, items - 5)
@@ -12,22 +12,21 @@ const Pagination = ({items}: any) => {
 
         return Array.from({ length: endPage - startPage + 1 }, (_, i) => ({
             label: `${startPage + i}`,
-            value: `${startPage + i}`,
+            value: startPage + i,
           }))
     }
 
     const seted = calculation()
-console.log(seted)
+
     return (
         <div className="flex justify-center items-center gap-2 mt-[10rem] mb-3" >
-                <div className="hover:cursor-pointer"><LeftArrow /></div>
+                <div className="hover:cursor-pointer" onClick={() => setPage(page - 1)}><LeftArrow /></div>
 {seted.map(page => (
-    <div key={page.label}>
+    <div key={page.label} onClick={() => setPage(page.value)} className="hover:cursor-pointer">
         {page.value}
     </div>
 ))}
-<div className="hover:cursor-pointer transform -scale-x-100"><LeftArrow /></div>
-
+<div className="hover:cursor-pointer transform -scale-x-100" onClick={() => {setPage(page + 1)}}><LeftArrow /></div>
         </div>
     )
 }

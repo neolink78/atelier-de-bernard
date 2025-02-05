@@ -1,9 +1,11 @@
-import { Painting } from '../schemas/Paintings.schema';
+import { Painting, Filters } from '../schemas/Paintings.schema';
 import prisma from "../db";
 
-export const get = async (painting?: Painting) => {
+export const get = async (filters?: Filters, offset?: number, take?: number) => {
    const result = await prisma.library.findMany({
-        where: painting,
+        where: filters,
+        take,
+        skip: offset,
         select: {
             id: true,
             name: true,
@@ -38,4 +40,11 @@ export const update = async (painting: Painting) => {
          data: painting
      })
      return result
+ }
+
+ export const count = async (filters?: any) => {
+    const result = await prisma.library.count({
+        where: filters
+    })
+    return result
  }

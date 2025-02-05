@@ -9,15 +9,42 @@ const Galery = () => {
   const [selectedTech, setSelectedTech] = useState('Tout')
   const [selectedCategory, setSelectedCategory] = useState('Tout')
   const [paintings, setPaintings] = useState([])
+  const [paginationNumber, setPaginationNumber] = useState()
+  const [page, setPage] = useState(1)
 
-const paintingsGetter = async () => {
-  const paints =await paintingsService.get()
+const paintingsGetter = async (selectedTech?: string, selectedCategory?: string, page?: number) => {
+  const paints =await paintingsService.get(selectedTech, selectedCategory, page)
   setPaintings(paints)
 }
 
+const totalPaintings = async (selectedTech?: string, selectedCategory?: string) => {
+  const {total} = await paintingsService.count(selectedTech, selectedCategory)
+  setPaginationNumber(total)
+}
+
   useEffect(() => {
-      paintingsGetter()
+   if (selectedTech !== 'Tout' && selectedCategory !== 'Tout' ) {
+    paintingsGetter(selectedTech, selectedCategory, page)
+    totalPaintings(selectedTech, selectedCategory)
+  }
+    else if (selectedTech !== 'Tout' && selectedCategory === 'Tout' ) {
+      paintingsGetter(selectedTech, undefined, page)
+      totalPaintings(selectedTech, undefined)
+    }
+    else if (selectedTech === 'Tout' && selectedCategory !== 'Tout' ) {
+      paintingsGetter(undefined, selectedCategory, page)
+      totalPaintings(undefined, selectedCategory)
+    }else {
+      paintingsGetter(undefined, undefined, page)
+      totalPaintings(undefined, undefined)
+    }
+  },[selectedTech, selectedCategory, page])
+
+  useEffect(() => {
+    paintingsGetter()
+    totalPaintings()
   },[])
+
 
     return(
         <>
@@ -37,7 +64,7 @@ const paintingsGetter = async () => {
        </div>
      </div>
      <ShowRoom filter={{technique: selectedTech, category: selectedCategory}} paintings={paintings}/>
-     <Pagination items={paintings.length}/>
+     {paginationNumber !== undefined && paginationNumber > 12 && <Pagination items={paginationNumber} page={page} setPage={(e: any) => setPage(e)}/>}
        </>
     )
 }

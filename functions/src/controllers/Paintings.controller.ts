@@ -35,3 +35,26 @@ export const update = async (req: Request, res: Response): Promise<void> => {
         res.status(500).send(err)
     }
 }
+
+export const getByType = async (req: Request, res: Response) => {
+    try {
+        const {technique, category, page} = req.query
+        const paintings = 
+        await PaintingsService.getByType(technique as string, category as string, parseInt(page as string))
+        res.status(200).send(paintings)
+    } catch (err) {
+        console.log(err)
+        res.status(500).send(err)
+    }
+}
+
+export const count = async (req: Request, res: Response) => {
+    try {
+        const {technique, category} = req.query
+        const paintingsNumber= await PaintingsService.count(technique as string, category as string)
+        res.status(200).send({total: paintingsNumber})
+    } catch (err) {
+        console.log(err)
+        res.status(500).send(err)
+    }
+}
