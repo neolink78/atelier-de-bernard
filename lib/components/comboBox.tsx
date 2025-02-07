@@ -6,10 +6,11 @@ type ComboBoxType = {
     data: string[]
     selected: string
     setSelected: (filters: string) => void
+    setPage: (filters: number) => void
     
 }
 
-const ComboBox = ({label, data, selected, setSelected} : ComboBoxType) => {
+const ComboBox = ({label, data, selected, setSelected, setPage} : ComboBoxType) => {
     const [show, setShow] = useState(false)
     
     return (
@@ -33,6 +34,7 @@ const ComboBox = ({label, data, selected, setSelected} : ComboBoxType) => {
                 onClick={() => {
                     setSelected(value)
                     setShow(false)
+                    setPage(1)
                 }}
             >
                 {value}

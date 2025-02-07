@@ -1,7 +1,6 @@
-import React from 'react';
 import ComboBox from "@/lib/components/comboBox"
 import ShowRoom from '@/components/showRoom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Pagination from '@/lib/components/pagination';
 import * as paintingsService from "../services/paintings.service"
 
@@ -12,38 +11,25 @@ const Galery = () => {
   const [paginationNumber, setPaginationNumber] = useState()
   const [page, setPage] = useState(1)
 
-const paintingsGetter = async (selectedTech?: string, selectedCategory?: string, page?: number) => {
-  const paints =await paintingsService.get(selectedTech, selectedCategory, page)
-  setPaintings(paints)
-}
-
-const totalPaintings = async (selectedTech?: string, selectedCategory?: string) => {
-  const {total} = await paintingsService.count(selectedTech, selectedCategory)
-  setPaginationNumber(total)
-}
-
-  useEffect(() => {
-   if (selectedTech !== 'Tout' && selectedCategory !== 'Tout' ) {
-    paintingsGetter(selectedTech, selectedCategory, page)
-    totalPaintings(selectedTech, selectedCategory)
-  }
-    else if (selectedTech !== 'Tout' && selectedCategory === 'Tout' ) {
-      paintingsGetter(selectedTech, undefined, page)
-      totalPaintings(selectedTech, undefined)
-    }
-    else if (selectedTech === 'Tout' && selectedCategory !== 'Tout' ) {
-      paintingsGetter(undefined, selectedCategory, page)
-      totalPaintings(undefined, selectedCategory)
-    }else {
-      paintingsGetter(undefined, undefined, page)
-      totalPaintings(undefined, undefined)
-    }
-  },[selectedTech, selectedCategory, page])
+ const fetchPaintings = useCallback(async () => {
+    const [paints, { total }] = await Promise.all([
+      paintingsService.get(
+        selectedTech === 'Tout' ? undefined : selectedTech,
+        selectedCategory === 'Tout' ? undefined : selectedCategory,
+        page
+      ),
+      paintingsService.count(
+        selectedTech === 'Tout' ? undefined : selectedTech,
+        selectedCategory === 'Tout' ? undefined : selectedCategory
+      )
+    ]);
+    setPaintings(paints);
+    setPaginationNumber(total);
+  }, [selectedTech, selectedCategory, page]);
 
   useEffect(() => {
-    paintingsGetter()
-    totalPaintings()
-  },[])
+   fetchPaintings()
+  },[fetchPaintings])
 
 
     return(
@@ -54,9 +40,11 @@ const totalPaintings = async (selectedTech?: string, selectedCategory?: string) 
          <ComboBox 
          label={'Technique utilisée'} 
          data={["Tout" ,"Peinture à l'huile", "Fusain", "Pastel"]} 
+         setPage={setPage}
          selected={selectedTech} 
          setSelected={setSelectedTech}/>
          <ComboBox 
+         setPage={setPage}
          label={'Catégorie'} 
          data={['Tout','Nature morte', 'Paysage', 'Portrait']} 
          selected={selectedCategory} 

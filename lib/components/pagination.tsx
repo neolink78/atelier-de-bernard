@@ -20,13 +20,13 @@ const Pagination = ({items, page, setPage}: any) => {
 
     return (
         <div className="flex justify-center items-center gap-2 mt-[10rem] mb-3" >
-                <div className="hover:cursor-pointer" onClick={() => setPage(page - 1)}><LeftArrow /></div>
+                <div className={`hover:${page === 1 ? 'cursor-default' :'cursor-pointer'}`} onClick={() => page !== 1 && setPage(page - 1)}><LeftArrow /></div>
 {seted.map(page => (
     <div key={page.label} onClick={() => setPage(page.value)} className="hover:cursor-pointer">
         {page.value}
     </div>
 ))}
-<div className="hover:cursor-pointer transform -scale-x-100" onClick={() => {setPage(page + 1)}}><LeftArrow /></div>
+<div className={`hover:${page === seted.length ? 'cursor-default' :'cursor-pointer'} transform -scale-x-100`} onClick={() => page < seted.length && setPage(page + 1)}><LeftArrow /></div>
         </div>
     )
 }
