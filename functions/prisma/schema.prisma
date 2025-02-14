@@ -17,3 +17,10 @@ model library {
   technique   String? @db.VarChar(255)
   category    String? @db.VarChar(255)
 }
+
+model contacts {
+    id        String   @id @default(uuid())
+    firstname String   @db.VarChar(50)
+    lastname  String   @db.VarChar(50)
+    mail      String   @unique @db.VarChar(50)
+}

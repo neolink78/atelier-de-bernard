@@ -2,9 +2,9 @@ import { Request, Response } from "express";
 import * as PaintingsService from '../services/Paintings.service'
 import { UploadedFile } from "express-fileupload";
 
-export const getAll = async (req: Request, res: Response) => {
+export const getById = async (req: Request, res: Response) => {
     try {
-        const paintings = await PaintingsService.getAll()
+        const paintings = await PaintingsService.getById(req.params)
         res.status(200).send(paintings)
     } catch (err) {
         console.log(err)

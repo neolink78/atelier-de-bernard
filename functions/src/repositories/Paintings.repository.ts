@@ -19,6 +19,14 @@ export const get = async (filters?: Filters, offset?: number, take?: number) => 
     return result
 }
 
+export const getById = async (id: number) => {
+    const result = await prisma.library.findUnique({
+        where: {id}
+    })
+
+    return result
+}
+
 export const add = async (painting: Painting,imageID: string, picture: string) => {
     const result = await prisma.library.create({
        data: {

@@ -2,6 +2,7 @@ import Image from "next/image"
 import { useRouter } from "next/router";
 
 type PaintingType = {
+    id: string
     picture:string
     name: string
     technique: string
@@ -33,19 +34,29 @@ const ShowRoom = ({filter, paintings}: ShowRoomType) => {
 
     return (
         <div className="grid grid-cols-4 gap-4= my-5">
-       {paintings.filter(painting =>  filterType(painting)).map((painting, idx) => {
-        return (
+       {paintings.filter(painting =>  filterType(painting)).map((painting, idx) => (
         <div 
         key={idx} 
         className="flex flex-col items-center justify-center text-center" 
-        
         >
-        <Image src={painting.picture} width={300} height={300} alt={painting.name} onClick={() => router.push(`/paintings/${painting.name}`)} className="hover:cursor-pointer"/>
+        <Image 
+        src={painting.picture} 
+        width={300} 
+        height={300} 
+        alt={painting.name} 
+        onClick={() => router.push({
+            pathname:`/paintings/${painting.name.replace(/\s+/g, '-')}`,
+            query: {id: painting.id} 
+        },
+            `/paintings/${painting.name.replace(/\s+/g, '-')}`
+        )} 
+        className="hover:cursor-pointer"
+        />
         <p>{painting.name}</p>
         <p>{painting.technique}</p>
         <p>{painting.price}€</p>
         </div>
-       )})}
+       ))}
        </div>
     )
 }

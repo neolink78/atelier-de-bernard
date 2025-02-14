@@ -5,7 +5,16 @@ const URL = process.env.NEXT_PUBLIC_LOCAL_SERVER  + '/paintings'
 
 export const get = async (technique?: string, category?: string, page?: number) => {
     try {
-        const {data} = await axios.get(`${URL}/getByType?category=${category}&technique=${technique}&page=${page}`)
+        const { data } = await axios.get(`${URL}/getByType?category=${category}&technique=${technique}&page=${page}`)
+        return data
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+export const getById = async (id: number) => {
+    try {
+        const { data } = await axios.get(`${URL}/${id}`)
         return data
     } catch (err) {
         console.log(err)
