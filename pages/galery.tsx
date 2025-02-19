@@ -31,7 +31,6 @@ const Galery = () => {
    fetchPaintings()
   },[fetchPaintings])
 
-
     return(
         <>
         <div className="flex justify-end mr-24 gap-3">
