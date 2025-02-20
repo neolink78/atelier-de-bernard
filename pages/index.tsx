@@ -8,7 +8,13 @@ Jean-Michel, un peintre à la retraite, a consacré toute sa vie à capturer la 
 Jean-Michel maîtrise parfaitement l’art des jeux de lumière, inspiré par les impressionnistes qui ont autrefois arpenté les mêmes terres. Ses tableaux reflètent une atmosphère douce, presque nostalgique, comme s&apos;il cherchait à figer des moments d&apos;éternité dans la toile. Aujourd&apos;hui, bien qu&apos;il ait pris du recul par rapport au monde de l&apos;art professionnel, il expose et vend ses œuvres lors des marchés locaux ou dans de petites galeries.
 Sa retraite lui permet d’apprécier chaque coup de pinceau sans la pression des délais. Pour Jean-Michel, chaque tableau vendu est l&apos;occasion de partager un fragment de son regard intime sur Bennecourt, un coin de paradis qu&apos;il chérit depuis toujours.
         </p>
-        <Image src="/profile.svg" width={600} height={600} alt="profile"/>
+        <div className="relative w-[45%] aspect-[2/3]">
+        <Image 
+        src="/profile.svg" 
+        fill
+        objectFit="contain"
+        alt="profile"/>
+        </div>
         </div>
     
 )

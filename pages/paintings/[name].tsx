@@ -1,9 +1,10 @@
+import Image from "next/image";
 import { useRouter } from "next/router";
+import { ToastContainer, toast } from "react-toastify";
 import LeftArrow from "@/lib/icons/leftArrow";
 import { useCallback, useEffect, useState } from "react";
 import { useCart } from "@/context/cartContext";
 import * as PaintingsService from '@/services/paintings.service'
-import Image from "next/image";
 
 type PaintingType = {
    id: number
@@ -13,7 +14,6 @@ type PaintingType = {
    category: string
    price: string
    description: string
-   
 }
 
 const PaintingId = () => {
@@ -42,14 +42,27 @@ const PaintingId = () => {
          category: painting.category,
          description: painting.description
       })
+      toast.success('Tableau ajouté au panier', {
+         position: "bottom-right",
+         autoClose: 4000,
+         pauseOnHover: false,
+         theme: "dark",
+         });
    }
 
    const removePaintingFromCart = () => {
       if (!painting) return
       removeFromCart(painting.id)
+      toast.success('Tableau retiré du panier', {
+         position: "bottom-right",
+         autoClose: 4000,
+         pauseOnHover: false,
+         theme: "dark",
+         });
    }
 
  return painting && (
+   <>
  <div className="mx-[15rem]"> 
     <div onClick={() => router.push('/galery')} 
     className="flex gap-2 items-center justify-start hover:cursor-pointer w-fit hover:border-b-2 hover:border-black border-b-2 border-transparent"
@@ -58,7 +71,7 @@ const PaintingId = () => {
       Retourner dans la galerie
     </div>
     <div className="flex justify-center gap-14 mt-2">
-      <div className=" w-[30%] h-[40rem] relative">
+      <div className="w-[30%] h-[40rem] relative">
      <Image 
      src={painting.picture}  
      fill
@@ -78,6 +91,8 @@ const PaintingId = () => {
      </div>
      </div>
  </div>
+ <ToastContainer />
+ </>
  )
 }
 

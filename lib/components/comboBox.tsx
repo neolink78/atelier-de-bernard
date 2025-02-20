@@ -25,7 +25,7 @@ const ComboBox = ({label, data, selected, setSelected, setPage} : ComboBoxType) 
                 <CollapseArrowDownIcon />
                 </div>
             </div>
-            <div className={`absolute bg-white text-center w-40 border border-black ${show ? "block rounded-b-md border-t-0" : "hidden"}`}>
+            <div className={`absolute bg-white text-center w-40 border border-black ${show ? "block rounded-b-md border-t-0" : "hidden"} z-10 `}>
     <div className="flex flex-col items-center">
         {data.map((value, idx) => (
             <p 

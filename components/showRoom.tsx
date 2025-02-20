@@ -33,16 +33,18 @@ const ShowRoom = ({filter, paintings}: ShowRoomType) => {
     }
 
     return (
-        <div className="grid grid-cols-4 gap-4= my-5">
+        <div className="grid grid-cols-4 gap-y-6 mt-8">
        {paintings.filter(painting =>  filterType(painting)).map((painting, idx) => (
         <div 
         key={idx} 
         className="flex flex-col items-center justify-center text-center" 
         >
+        <div className="relative w-[45%] aspect-[2/3]">
         <Image 
+        className="hover:cursor-pointer z-0"
         src={painting.picture} 
-        width={300} 
-        height={300} 
+       fill
+       objectFit="contain"
         alt={painting.name} 
         onClick={() => router.push({
             pathname:`/paintings/${painting.name.replace(/\s+/g, '-')}`,
@@ -50,9 +52,9 @@ const ShowRoom = ({filter, paintings}: ShowRoomType) => {
         },
             `/paintings/${painting.name.replace(/\s+/g, '-')}`
         )} 
-        className="hover:cursor-pointer"
         />
-        <p>{painting.name}</p>
+        </div>
+        <p className="mt-2">{painting.name}</p>
         <p>{painting.technique}</p>
         <p>{painting.price}€</p>
         </div>

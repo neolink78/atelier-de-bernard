@@ -31,6 +31,10 @@ const Galery = () => {
    fetchPaintings()
   },[fetchPaintings])
 
+  useEffect(() => {
+    window.scrollTo({top: 0, behavior: 'smooth'})
+  },[page])
+
     return(
         <>
         <div className="flex justify-end mr-24 gap-3">
