@@ -1,10 +1,45 @@
 import { useCart } from "@/context/cartContext"
+import { useRouter } from "next/router"
 import Image from "next/image"
 import TrashIcon from '@/lib/icons/trashIcon'
+import  * as stripeApi from '@/services/api.service'
+import { useEffect } from "react"
+import { ToastContainer, toast } from "react-toastify";
 
 const Cart = () => {
+    const router = useRouter()
     const {cart, removeFromCart, clearCart} = useCart()
     let amount = 0
+
+     const handleCheckout = async () => {
+            const processing = await stripeApi.post(cart)
+            if (processing.url) {
+                window.location.href = processing.url
+            }
+        }
+    
+    useEffect(() => {
+       if(router.query.payment) {
+            if(router.query.payment === 'success') {
+             toast.success('Paiement effectué', {
+             position: "bottom-right",
+             autoClose: 4000,
+             pauseOnHover: false,
+             theme: "dark",
+            });
+            clearCart()
+        }
+            else if(router.query.payment === 'failed' ) toast.error('erreur', {
+             position: "bottom-right",
+             autoClose: 4000,
+             pauseOnHover: false,
+             theme: "dark",
+            });
+        setTimeout(() => {
+            router.replace('/cart', undefined, { shallow: true });
+        }, 1000)
+    }
+    },[router.query.payment])
 
     return(
         <>
@@ -41,7 +76,12 @@ const Cart = () => {
        )})}
 
         </div>
-        <button className="bg-white p-2 right-5 bottom-5 rounded-md fixed hover:bg-black hover:text-white">Procéder au paiement de {amount} € </button>
+     {cart.length > 0 && <button 
+        onClick={() => handleCheckout()}
+        className="bg-white p-2 right-5 bottom-5 rounded-md fixed hover:bg-black hover:text-white">
+            Procéder au paiement de {amount} € 
+        </button>}
+        <ToastContainer />
         </>
     )
 }

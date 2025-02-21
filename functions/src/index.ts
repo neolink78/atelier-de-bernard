@@ -18,5 +18,5 @@ app.use(router)
 
 
 app.listen(port, () => {
-  console.log(`AExample app listening on port ${port}`)
+  console.log(`Listening on port ${port}`)
 })

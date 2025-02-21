@@ -12,7 +12,7 @@ Sa retraite lui permet d’apprécier chaque coup de pinceau sans la pression de
         <Image 
         src="/profile.svg" 
         fill
-        objectFit="contain"
+        style={{ objectFit: "contain" }}
         alt="profile"/>
         </div>
         </div>

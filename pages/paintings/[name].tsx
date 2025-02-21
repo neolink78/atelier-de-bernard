@@ -75,8 +75,8 @@ const PaintingId = () => {
      <Image 
      src={painting.picture}  
      fill
-     objectPosition="top"
-     objectFit="contain"
+     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+     style={{objectFit: "contain", objectPosition: 'top'}}
      alt={painting.name} />
      </div>
      <div className="flex flex-col items-center w-[30%]">

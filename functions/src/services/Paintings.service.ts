@@ -4,8 +4,8 @@ import { UploadedFile } from 'express-fileupload'
 import imageKit from '../imageKit'
 import fs from 'fs'
 
-export const getById = async (id: any) => {
-  const paintings = await PaintingsRepository.getById(Number(id.id))
+export const getById = async (id: number) => {
+  const paintings = await PaintingsRepository.getById(id)
   return paintings
 }
 

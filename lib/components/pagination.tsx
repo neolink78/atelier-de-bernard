@@ -1,6 +1,13 @@
 import LeftArrow from "../icons/leftArrow"
 
-const Pagination = ({items, page, setPage}: any) => {
+type PaginationType = {
+    items: number
+    page: number
+    setPage: any
+}
+
+
+const Pagination = ({items, page, setPage}: PaginationType) => {
     const calculation = () => {
         const totalPages = Math.ceil(items / 12)
         let startPage = Math.max(1, items - 5)

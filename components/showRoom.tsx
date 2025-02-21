@@ -8,8 +8,8 @@ type PaintingType = {
     technique: string
     category: string
     price: string
-    
 }
+
 type ShowRoomType = {
     filter: {
         technique: string,
@@ -44,7 +44,8 @@ const ShowRoom = ({filter, paintings}: ShowRoomType) => {
         className="hover:cursor-pointer z-0"
         src={painting.picture} 
        fill
-       objectFit="contain"
+       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+       style={{objectFit: 'contain'}}
         alt={painting.name} 
         onClick={() => router.push({
             pathname:`/paintings/${painting.name.replace(/\s+/g, '-')}`,

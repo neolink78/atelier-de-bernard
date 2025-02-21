@@ -4,7 +4,7 @@ import { UploadedFile } from "express-fileupload";
 
 export const getById = async (req: Request, res: Response) => {
     try {
-        const paintings = await PaintingsService.getById(req.params)
+        const paintings = await PaintingsService.getById(Number(req.params.id))
         res.status(200).send(paintings)
     } catch (err) {
         console.log(err)

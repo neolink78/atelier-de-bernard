@@ -1,4 +1,5 @@
-import {createContext, useContext, useState} from "react"
+import {createContext, useContext, useEffect, useState} from "react"
+import { getCookies, setCookies } from "@/components/cookies"
 
 type CartItem = {
     id: number,
@@ -21,18 +22,28 @@ type CartContextType = {
 const CartContext = createContext<CartContextType | undefined>(undefined)
 
 export const CartProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
-    const [cart, setCart] = useState<CartItem[]>([])
+    const [cart, setCart] = useState<CartItem[] | null>(null)
+
+    useEffect(() => {
+        if (cart !== null) setCookies(cart)
+    },[cart])
+
+    useEffect(() => {
+        setCart(getCookies())
+    },[])
 
     const addToCart = (item: CartItem) => {
+        if (cart === null) return
         setCart((oldCart) => {
-            const itemexists = oldCart.find((painting) => painting.id === item.id)
+            const itemexists = oldCart !== null && oldCart.find((painting) => painting.id === item.id)
             if (itemexists) return oldCart 
-            return [...oldCart, item]
+            return [...oldCart || [], item]
         })
     }
 
     const removeFromCart = (id: number) => {
-        setCart((oldCart) => oldCart.filter((item) => item.id !== id))
+        if (cart === null) return
+        setCart((oldCart) => oldCart !== null ? oldCart.filter((item) => item.id !== id) : [])
     }
 
     const clearCart = () => {
@@ -40,13 +51,14 @@ export const CartProvider: React.FC<{children: React.ReactNode}> = ({children}) 
     }
 
     const checkIfAdded = (id: number) => {
+        if (cart === null) return false
         const isAdded = cart.find(painting => painting.id === id)
         if (isAdded) return true
         return false
     }
 
     return (
-        <CartContext.Provider value={{cart, addToCart, removeFromCart, clearCart, checkIfAdded}}>
+        <CartContext.Provider value={{cart: cart ?? [], addToCart, removeFromCart, clearCart, checkIfAdded}}>
             {children}
         </CartContext.Provider>
     )
