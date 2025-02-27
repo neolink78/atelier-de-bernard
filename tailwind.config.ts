@@ -14,7 +14,7 @@ const config: Config = {
         foreground: "var(--foreground)",
       },
       fontFamily: {
-        inspiration: ["cursive"]
+        inspiration: ["Dancing Script"]
       }
     },
   },
