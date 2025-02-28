@@ -37,9 +37,9 @@ const Galery = () => {
 
     return(
         <>
-        <div className="flex justify-end mr-24 gap-3">
-        <p className="mt-7">Trier par</p>
-        <div className="flex gap-4">
+        <div className="flex justify-center sm:justify-end sm:mr-24 gap-3">
+        <p className="mt-7 hidden sm:block ">Trier par</p>
+        <div className="flex gap-1 sm:gap-4">
          <ComboBox 
          label={'Technique utilisée'} 
          data={["Tout" ,"Peinture à l'huile", "Fusain", "Pastel"]} 

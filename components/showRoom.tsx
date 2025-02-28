@@ -33,7 +33,7 @@ const ShowRoom = ({filter, paintings}: ShowRoomType) => {
     }
 
     return (
-        <div className="grid grid-cols-4 gap-y-6 mt-8">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-y-6 mt-8">
        {paintings.filter(painting =>  filterType(painting)).map((painting, idx) => (
         <div 
         key={idx} 

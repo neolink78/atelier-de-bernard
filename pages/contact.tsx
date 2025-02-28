@@ -22,12 +22,12 @@ const Contact = () => {
     }
 
     return(
-        <div className="mx-[12rem]">
+        <div className="mx-5 sm:mx-[12rem] mb-3">
             <p className="flex justify-center text-center w-4xl">Pour toute demande particulière, Merci de nous envoyer directement un mail via ce formulaire.
             Sachez qu&apos;un seul mail par adresse mail sera traité. Assurez vous donc de ne rien avoir oublié !</p>
-            <form onSubmit={handleSubmit(onSubmit)} className='relative flex flex-col gap-10 max-w-sm mx-auto mt-8'>
+            <form onSubmit={handleSubmit(onSubmit)} className='relative flex flex-col gap-5 sm:gap-10 max-w-sm mx-auto mt-8 px-9 '>
                 <div>
-                    <label className="ml-2">Prénom</label>
+                    <label className="flex justify-center sm:block sm:ml-2">Prénom</label>
             <input 
             type="text"
             {...register('firstname')}
@@ -36,7 +36,7 @@ const Contact = () => {
             {errors.firstname && <p className="absolute mt-1 text-red-500 text-sm">{errors.firstname.message}</p>}
                 </div>
                 <div>
-                    <label className="ml-2">Nom</label>
+                    <label className="flex justify-center sm:block sm:ml-2">Nom</label>
             <input 
             type="text"
             {...register('lastname')}
@@ -45,7 +45,7 @@ const Contact = () => {
             {errors.lastname && <p className="absolute mt-1 text-red-500 text-sm">{errors.lastname.message}</p>}
                 </div>
                 <div>
-                    <label className="ml-2">Email</label>
+                    <label className="flex justify-center sm:block sm:ml-2">Email</label>
             <input 
             type="email"
             {...register('mail')}
@@ -54,7 +54,7 @@ const Contact = () => {
             {errors.mail && <p className="absolute mt-1 text-red-500 text-sm">{errors.mail.message}</p>}
                 </div>
                 <div>
-                    <label className="ml-2">Message</label>
+                    <label className="flex justify-center sm:block sm:ml-2">Message</label>
            <textarea 
            
            {...register("message")}
@@ -65,7 +65,7 @@ const Contact = () => {
                 </div>
                 <button
                 type='submit'
-                className='bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600'
+                className='bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600'
                 >Envoyer
                 </button>
                 {errorButton && <p className="absolute mt-1 top-full text-red-500 text-sm">{errorButton}</p>}

@@ -15,7 +15,7 @@ const Layout = ({children}: Props) => {
 
     return (
      <div className='bg-[grey]'>
-        <header className="flex text-[1.5rem] sm:text-[2.5rem] justify-center gap-3 sm:justify-between items-center pt-9 sm:mx-[4rem] pb-12">
+        <header className="flex text-[1.5rem] sm:text-[2.5rem] justify-center gap-3 sm:justify-between items-center pt-9 sm:mx-[4rem] pb-4 sm:pb-12">
         <nav className="flex gap-5 font-inspiration">
         <Link href={'/'} className={`${router.route === '/' ? 'border-b sm:border-b-4 border-black' : 'border-b sm:border-b-4 border-transparent'}  hover:border-black`}>Accueil</Link>
         <Link href={'/galery'} className={`${router.route === '/galery' ? 'border-b sm:border-b-4 border-black' : 'border-b sm:border-b-4 border-transparent'}  hover:border-black`}>Galerie</Link>
@@ -32,7 +32,7 @@ const Layout = ({children}: Props) => {
         </Link>
         </div>
         </header>
-        <div className='text-center text-[1.5rem] sm:text-[2.5rem]'>~L&apos;atelier de Bernard~</div>
+        <div className='text-center text-[1.5rem] sm:text-[2.5rem] pb-8'>~L&apos;atelier de Bernard~</div>
         <div className='min-h-screen'>{children}</div>
         <div className='p-12 bg-slate-400 text-right text-sm sm:text-[1.5rem] sm:mt-3'>Copyright © 2025 Bernard Resse</div>
      </div>
