@@ -43,7 +43,7 @@ const Cart = () => {
 
     return(
         <>
-        <div className="mx-[15rem]">
+        <div className="sm:mx-[15rem]">
             <div className="flex justify-between items-center mb-5">
         <p className="p-3" >Votre panier {cart.length > 0 ? ":" : "est vide !"}</p>
         {cart.length > 0 && <button onClick={() => clearCart()} className="bg-white rounded-md px-3 py-1.5 hover:bg-black hover:text-white">Tout retirer</button>}
@@ -63,7 +63,7 @@ const Cart = () => {
                <div className="flex flex-col gap-5 ml-2">
             <p>{painting.name}</p>
             <p>{painting.technique} - {painting.category}</p>
-            <p>{painting.description}</p>
+            <p className="hidden xl:block">{painting.description}</p>
             </div>
             </div>
             <div className="flex items-center gap-5">
