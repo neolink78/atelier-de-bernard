@@ -35,7 +35,9 @@ const ShowRoom = ({filter, paintings}: ShowRoomType) => {
     const truncateTitle = (text: string) => {
         let charLimit;
 
-        if (window.innerWidth < 750) {
+        if (window.innerWidth < 350) {
+            charLimit = 13;
+          } else if (window.innerWidth < 750) {
             charLimit = 15;
           } else if (window.innerWidth < 980) {
             charLimit = 20;
@@ -46,7 +48,7 @@ const ShowRoom = ({filter, paintings}: ShowRoomType) => {
     }
 
     return (
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-y-6 mt-8">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-y-6 mt-8 2xl:mx-48 ">
        {paintings.filter(painting =>  filterType(painting)).map((painting, idx) => (
         <div 
         key={idx} 

@@ -23,7 +23,7 @@ const Contact = () => {
 
     return(
         <div className="mx-5 sm:mx-[12rem] mb-3">
-            <p className="flex justify-center text-center w-4xl">Pour toute demande particulière, Veuillez m&apos;envoyer directement un mail via ce formulaire.
+            <p className="flex justify-center text-center w-4xl">Pour toute demande particulière, Veuillez m&apos;envoyer un mail via ce formulaire.
             Sachez qu&apos;un seul mail par adresse ne sera traité. Assurez vous donc de ne rien avoir oublié !</p>
             <form onSubmit={handleSubmit(onSubmit)} className='relative flex flex-col gap-5 sm:gap-10 max-w-sm mx-auto mt-8 px-9 '>
                 <div>

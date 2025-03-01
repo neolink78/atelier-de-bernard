@@ -63,31 +63,34 @@ const PaintingId = () => {
 
  return painting && (
    <>
- <div className="mx-[15rem]"> 
+ <div className="xl:mx-[15rem]"> 
     <div onClick={() => router.push('/galery')} 
-    className="flex gap-2 items-center justify-start hover:cursor-pointer w-fit hover:border-b-2 hover:border-black border-b-2 border-transparent"
+    className="ml-5 xl:ml-0 flex gap-2 items-center justify-start hover:cursor-pointer w-fit hover:border-b-2 hover:border-black border-b-2 border-transparent"
     >
       <LeftArrow />
-      Retourner dans la galerie
+      <div className="flex gap-1">
+        <p className="hidden sm:block">Retourner dans la</p>
+        <p> galerie</p>
+      </div>
     </div>
-    <div className="flex justify-center gap-14 mt-2">
-      <div className="w-[30%] h-[40rem] relative">
+    <div className="block sm:flex justify-center sm:gap-14 mt-2">
+      <div className="sm:w-[30%] h-[10rem] sm:h-[40rem] relative">
      <Image 
      src={painting.picture}  
      fill
-     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+     sizes="(max-width: 1100px) 50vw, 33vw"
      style={{objectFit: "contain", objectPosition: 'top'}}
      alt={painting.name} />
      </div>
-     <div className="flex flex-col items-center w-[30%]">
-    <p className="text-[2rem]">{painting.name}</p>
-    <p className="text-[1.5rem]">{painting.category}</p>
-    <p className="text-[1.5rem]">{painting.technique}</p>
+     <div className="mx-6 sm:mx-0 flex flex-col items-center sm:w-[50%] md:w-[30%] text-center">
+    <p className="text-[1.5rem] sm:text-[2rem]">{painting.name}</p>
+    <p className="text-[1rem] sm:text-[1.5rem] mt-1 sm:mt-0">{painting.category}</p>
+    <p className="text-[1rem] sm:text-[1.5rem]">{painting.technique}</p>
     <p className="mt-8">{painting.description}</p>
     <p className="mt-8">{painting.price} €</p>
     {checkIfAdded(painting.id) ? 
-    <button className="bg-white p-2 w-full mt-8 rounded-md hover:bg-black hover:text-white" onClick={removePaintingFromCart} >Retirer du panier</button> 
-    : <button className="bg-white p-2 w-full mt-8 rounded-md hover:bg-black hover:text-white" onClick={addPaintingToCart} >Ajouter au panier</button>}
+    <button className="bg-white p-2 w-[60%] sm:w-[80%] mt-8 rounded-md hover:bg-black hover:text-white" onClick={removePaintingFromCart} >Retirer du panier</button> 
+    : <button className="bg-white p-2 w-[60%] sm:w-[80%] mt-8 rounded-md hover:bg-black hover:text-white" onClick={addPaintingToCart} >Ajouter au panier</button>}
      </div>
      </div>
  </div>
