@@ -25,13 +25,13 @@ const Contact = () => {
         <div className="mx-5 sm:mx-[12rem] mb-3">
             <p className="flex justify-center text-center w-4xl">Pour toute demande particulière, Veuillez m&apos;envoyer un mail via ce formulaire.
             Sachez qu&apos;un seul mail par adresse ne sera traité. Assurez vous donc de ne rien oublier !</p>
-            <form onSubmit={handleSubmit(onSubmit)} className='relative flex flex-col gap-5 sm:gap-10 max-w-sm mx-auto mt-8 px-9 '>
+            <form onSubmit={handleSubmit(onSubmit)} className='relative flex flex-col gap-5 sm:gap-10 max-w-sm mx-auto mt-8 px-9'>
                 <div>
                     <label className="flex justify-center sm:block sm:ml-2">Prénom</label>
             <input 
             type="text"
             {...register('firstname')}
-           className="border text-sm rounded-lg w-full p-2.5 mt-1"
+            className="border text-sm rounded-lg w-full p-2.5 mt-1 text-black" 
             />
             {errors.firstname && <p className="absolute mt-1 text-red-500 text-sm">{errors.firstname.message}</p>}
                 </div>
@@ -40,7 +40,7 @@ const Contact = () => {
             <input 
             type="text"
             {...register('lastname')}
-            className="border text-sm rounded-lg w-full p-2.5 mt-1"
+            className="border text-sm rounded-lg w-full p-2.5 mt-1 text-black"
             />
             {errors.lastname && <p className="absolute mt-1 text-red-500 text-sm">{errors.lastname.message}</p>}
                 </div>
@@ -49,7 +49,7 @@ const Contact = () => {
             <input 
             type="email"
             {...register('mail')}
-            className="border text-sm rounded-lg w-full p-2.5 mt-1"
+            className="border text-sm rounded-lg w-full p-2.5 mt-1 text-black"
             />
             {errors.mail && <p className="absolute mt-1 text-red-500 text-sm">{errors.mail.message}</p>}
                 </div>
@@ -59,7 +59,7 @@ const Contact = () => {
            
            {...register("message")}
            rows={4}
-           className="border text-sm rounded-lg w-full p-2.5 mt-1 h-48 resize-none"
+           className="border text-sm rounded-lg w-full p-2.5 mt-1 h-48 resize-none text-black"
            />
             {errors.message && <p className="absolute mt-1 text-red-500 text-sm">{errors.message.message}</p>}
                 </div>
