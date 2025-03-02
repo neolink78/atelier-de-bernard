@@ -14,7 +14,8 @@ const config: Config = {
         foreground: "var(--foreground)",
       },
       fontFamily: {
-        inspiration: ["Dancing Script"]
+        inspiration: ["Dancing Script"],
+        text: ["Roboto"]
       }
     },
   },

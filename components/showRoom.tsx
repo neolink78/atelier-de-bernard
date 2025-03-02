@@ -34,7 +34,6 @@ const ShowRoom = ({filter, paintings}: ShowRoomType) => {
 
     const truncateTitle = (text: string) => {
         let charLimit;
-
         if (window.innerWidth < 350) {
             charLimit = 13;
           } else if (window.innerWidth < 750) {
@@ -59,7 +58,7 @@ const ShowRoom = ({filter, paintings}: ShowRoomType) => {
         className="hover:cursor-pointer z-0"
         src={painting.picture} 
        fill
-       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+       sizes="full"
        style={{objectFit: 'contain', objectPosition: 'bottom'}}
         alt={painting.name} 
         onClick={() => router.push({

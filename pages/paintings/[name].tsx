@@ -65,7 +65,7 @@ const PaintingId = () => {
    <>
  <div className="xl:mx-[15rem]"> 
     <div onClick={() => router.push('/galery')} 
-    className="ml-5 xl:ml-0 flex gap-2 items-center justify-start hover:cursor-pointer w-fit hover:border-b-2 hover:border-black border-b-2 border-transparent"
+    className="ml-5 xl:ml-0 flex gap-2 items-center justify-start hover:cursor-pointer w-fit hover:border-b-2 hover:border-stone-200 border-b-2 border-transparent"
     >
       <LeftArrow />
       <div className="flex gap-1">
@@ -89,8 +89,8 @@ const PaintingId = () => {
     <p className="mt-8">{painting.description}</p>
     <p className="mt-8">{painting.price} €</p>
     {checkIfAdded(painting.id) ? 
-    <button className="bg-white p-2 w-[60%] sm:w-[80%] mt-8 rounded-md hover:bg-black hover:text-white" onClick={removePaintingFromCart} >Retirer du panier</button> 
-    : <button className="bg-white p-2 w-[60%] sm:w-[80%] mt-8 rounded-md hover:bg-black hover:text-white" onClick={addPaintingToCart} >Ajouter au panier</button>}
+    <button className="bg-black p-2 w-[60%] sm:w-[80%] mt-8 rounded-md hover:bg-stone-200 hover:text-black" onClick={removePaintingFromCart} >Retirer du panier</button> 
+    : <button className="bg-black p-2 w-[60%] sm:w-[80%] mt-8 rounded-md hover:bg-stone-200 hover:text-black" onClick={addPaintingToCart} >Ajouter au panier</button>}
      </div>
      </div>
  </div>
