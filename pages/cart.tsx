@@ -29,7 +29,7 @@ const Cart = () => {
             });
             clearCart()
         }
-            else if(router.query.payment === 'failed' ) toast.error('erreur', {
+            else if(router.query.payment === 'failed' ) toast.error('Veuillez réessayer', {
              position: "bottom-right",
              autoClose: 4000,
              pauseOnHover: false,
