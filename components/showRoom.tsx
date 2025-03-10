@@ -60,7 +60,6 @@ const ShowRoom = ({filter, paintings}: ShowRoomType) => {
        fill
        sizes="full"
        style={{objectFit: 'contain', objectPosition: 'bottom'}}
-       //contain
         alt={painting.name} 
         onClick={() => router.push({
             pathname:`/paintings/${painting.name.replace(/\s+/g, '-')}`,
