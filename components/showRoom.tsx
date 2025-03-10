@@ -53,13 +53,14 @@ const ShowRoom = ({filter, paintings}: ShowRoomType) => {
         key={idx} 
         className="flex flex-col items-center justify-center text-center" 
         >
-        <div className="relative w-[45%] aspect-[2/3]">
+        <div className="relative w-[50%] 2xl:w-[60%] aspect-[2/3]">
         <Image 
         className="hover:cursor-pointer z-0"
         src={painting.picture} 
        fill
        sizes="full"
        style={{objectFit: 'contain', objectPosition: 'bottom'}}
+       //contain
         alt={painting.name} 
         onClick={() => router.push({
             pathname:`/paintings/${painting.name.replace(/\s+/g, '-')}`,
@@ -69,7 +70,7 @@ const ShowRoom = ({filter, paintings}: ShowRoomType) => {
         )} 
         />
         </div>
-        <p className="mt-2">{truncateTitle(painting.name)}</p>
+        <p className="mt-2 text-xl italic">{truncateTitle(painting.name)}</p>
         <p>{painting.technique}</p>
         <p>{painting.price}€</p>
         </div>

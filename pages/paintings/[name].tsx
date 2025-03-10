@@ -83,7 +83,7 @@ const PaintingId = () => {
      alt={painting.name} />
      </div>
      <div className="mx-6 sm:mx-0 flex flex-col items-center sm:w-[50%] md:w-[30%] text-center">
-    <p className="text-[1.5rem] sm:text-[2rem]">{painting.name}</p>
+    <p className="text-[1.5rem] sm:text-[2rem] italic">{painting.name}</p>
     <p className="text-[1rem] sm:text-[1.5rem] mt-1 sm:mt-0">{painting.category}</p>
     <p className="text-[1rem] sm:text-[1.5rem]">{painting.technique}</p>
     <p className="mt-8">{painting.description}</p>

@@ -32,7 +32,7 @@ const Layout = ({children}: Props) => {
         </Link>
         </div>
         </header>
-        <div className='text-inspiration text-center text-[1.5rem] sm:text-[2.5rem] pb-8 [font-kerning:none]'>~ L&#x2019;atelier de Bernard ~</div>
+        <div className='text-inspiration text-center text-[1.5rem] sm:text-[2.5rem] pb-8 [font-kerning:none] italic'>L&#x2019;atelier de Bernard</div>
         <div className='min-h-screen'>{children}</div>
         <div className='p-12 bg-slate-400 text-right text-sm sm:text-[1.5rem] sm:mt-3'>Copyright © 2025 Bernard Resse</div>
      </div>
