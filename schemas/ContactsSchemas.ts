@@ -2,15 +2,17 @@ import z from 'zod'
 
 export const schema = z.object({
         firstname: z.string()
-            .min(2, {message: "Votre prénom doit contenir au moins 2 lettres"})
-            .max(15, {message: "Votre prénom est trop long"}),
+            .min(2, {message: "contact_name_tooshort"})
+            .max(15, {message: "contact_name_toolong"})
+            .regex(/^[A-Za-zÀ-ÖØ-öø-ÿ -]+$/, { message: "contact_name_nonumber" }),
         lastname: z.string()
-            .min(2, {message: "Votre nom doit contenir au moins 2 lettres"})
-            .max(50, {message: "votre nom est trop long"}),
-        mail: z.string().email({message: "Ce format d'email n'est pas valide"}),
+            .min(2, {message: "contact_lastname_tooshort"})
+            .max(50, {message: "contact_lastname_toolong"})
+            .regex(/^[A-Za-zÀ-ÖØ-öø-ÿ -]+$/, { message: "contact_lastname_nonumber" }),
+        mail: z.string().email({message: "contact_email_error"}),
         message: z.string()
-         .min(5, {message: "Veuillez taper au moins 5 caractères"})
-         .max(300, {message: 'limite de caractères atteinte'})
+         .min(5, {message: "contact_message_tooshort"})
+         .max(300, {message: 'contact_message_toolong'})
     })
 
 export type FormSchema = z.infer<typeof schema>;

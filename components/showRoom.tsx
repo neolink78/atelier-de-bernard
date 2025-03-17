@@ -1,5 +1,6 @@
 import Image from "next/image"
 import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
 
 type PaintingType = {
     id: string
@@ -21,6 +22,7 @@ type ShowRoomType = {
 
 const ShowRoom = ({filter, paintings}: ShowRoomType) => {
     const router= useRouter()
+    const { t } = useTranslation('gallery') 
 
     const filterType = (painting: PaintingType) => {
         if(filter.category === 'Tout' && filter.technique !== 'Tout') {
@@ -44,6 +46,19 @@ const ShowRoom = ({filter, paintings}: ShowRoomType) => {
             charLimit = 30;
           }
         return text.length > charLimit ? text.slice(0, charLimit) + "..." : text;
+    }
+
+    const translateTechnique = (technique: string) => {
+        switch (technique) {
+            case "Peinture à l'huile":
+                return t("combobox_selected_oil");
+            case "Fusain":
+                return t("combobox_selected_charcoal");
+            case "Pastel":
+                return "Pastel";
+            default:
+                return technique;
+        }
     }
 
     return (
@@ -70,7 +85,7 @@ const ShowRoom = ({filter, paintings}: ShowRoomType) => {
         />
         </div>
         <p className="mt-2 text-xl italic">{truncateTitle(painting.name)}</p>
-        <p>{painting.technique}</p>
+        <p>{translateTechnique(painting.technique)}</p>
         <p>{painting.price}€</p>
         </div>
        ))}

@@ -1,0 +1,12 @@
+{
+    "cart_toast_success": "Paiement effectué",
+    "cart_toast_failed": "Veuillez réessayer",
+    "cart_description": "Votre panier",
+    "cart_isempty": "est vide !",
+    "cart_removebutton": "Tout retirer",
+    "cart_paybutton": "Procéder au paiement de {{amount}} €",
+    "selected_oil": "Peinture à l'huile",
+    "selected_charcoal": "Fusain",
+    "selected_still_life": "Nature morte",
+    "selected_landscape": "Paysage"
+}

@@ -1,0 +1,12 @@
+{
+    "painting_backto" : "Go back to the",
+    "painting_gallery": "gallery",
+    "painting_button_added": "Add to cart",
+    "painting_button_removed": "Remove from cart",
+    "painting_toast_added": "Painting added to the cart",
+    "painting_toast_removed": "Painting removed from the cart",
+    "selected_oil": "Oil painting",
+    "selected_charcoal": "Charcoal drawing",
+    "selected_still_life": "Still life",
+    "selected_landscape": "Landscape"
+}

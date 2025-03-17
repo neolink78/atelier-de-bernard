@@ -1,0 +1,16 @@
+{
+    "contact_header": "For any special requests, please send me an email via this form. Please note that only one email per address will be processed, so make sure not to forget anything !" ,
+    "contact_name": "Name",
+    "contact_name_tooshort": "Your name must atleast contain 2 letters",
+    "contact_name_toolong": "Your name is too long",
+    "contact_name_nonumber": "Your firstname must not contain numbers",
+    "contact_lastname" : "Last name",
+    "contact_lastname_tooshort" : "Your lastname must atleast contain 2 letters",
+    "contact_lastname_toolong" : "Your lastname is too long",
+    "contact_lastname_nonumber" : "Your lastname must not contain numbers",
+    "contact_email_error" : "This email format is not valid.",
+    "contact_message_tooshort" : "Please type atleast 5 characters",
+    "contact_message_toolong" : "Character limit reached",
+    "contact_button": "Send",
+    "contact_button_error": "You already sent us a mail with this address"
+}

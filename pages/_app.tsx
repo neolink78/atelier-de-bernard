@@ -1,9 +1,11 @@
+import {appWithTranslation} from 'next-i18next'
 import Layout from '@/components/layout';
 import { CartProvider } from '@/context/cartContext';
 import '@/styles/globals.css'
 import { AppProps } from 'next/app';
 
-export default function App({Component, pageProps }: AppProps) {
+
+function App({Component, pageProps }: AppProps) {
     return (
         <CartProvider>
         <Layout>
@@ -12,3 +14,5 @@ export default function App({Component, pageProps }: AppProps) {
         </CartProvider>
     )
 }
+
+export default appWithTranslation(App)

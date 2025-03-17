@@ -1,0 +1,10 @@
+{
+    "combobox_orderby": "Order by",
+    "combobox_label_technique": "Technique used",
+    "combobox_label_category": "Category",
+    "combobox_selected_all": "All",
+    "combobox_selected_oil": "Oil painting",
+    "combobox_selected_charcoal": "Charcoal drawing",
+    "combobox_selected_still_life": "Still life",
+    "combobox_selected_landscape": "Landscape"
+}

@@ -1,0 +1,12 @@
+{
+    "painting_backto" : "Retourner dans la",
+    "painting_gallery": "galerie",
+    "painting_button_added": "Ajouter au panier",
+    "painting_button_removed": "Retirer du panier",
+    "painting_toast_added": "Tableau ajouté au panier",
+    "painting_toast_removed": "Tableau retiré du panier",
+    "selected_oil": "Peinture à l'huile",
+    "selected_charcoal": "Fusain",
+    "selected_still_life": "Nature morte",
+    "selected_landscape": "Paysage"
+}

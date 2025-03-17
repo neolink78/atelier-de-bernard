@@ -1,0 +1,12 @@
+{
+    "cart_toast_success": "Payment done",
+    "cart_toast_failed": "Please retry",
+    "cart_description": "Your cart",
+    "cart_isempty": "is empty !",
+    "cart_removebutton": "Remove everything",
+    "cart_paybutton": "Proceed the payment of {{amount}} €",
+    "selected_oil": "Oil painting",
+    "selected_charcoal": "Charcoal drawing",
+    "selected_still_life": "Still life",
+    "selected_landscape": "Landscape"
+}

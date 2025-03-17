@@ -1,0 +1,16 @@
+{
+    "contact_header": "Pour toute demande particulière, veuillez m'envoyer un mail via ce formulaire. Sachez qu'un seul mail par adresse ne sera traité. Assurez vous donc de ne rien oublier !" ,
+    "contact_name": "Prénom",
+    "contact_name_tooshort": "Votre prénom doit contenir au moins 2 lettres",
+    "contact_name_toolong": "Votre prénom est trop long",
+    "contact_name_nonumber": "Votre prénom ne doit pas contenir de chiffres",
+    "contact_lastname" : "Nom",
+    "contact_lastname_tooshort" : "Votre nom doit contenir au moins 2 lettres",
+    "contact_lastname_toolong" : "votre nom est trop long",
+    "contact_lastname_nonumber" : "Votre nom ne doit pas contenir de chiffres",
+    "contact_email_error" : "Ce format d'email n'est pas valide",
+    "contact_message_tooshort" : "Veuillez taper au moins 5 caractères",
+    "contact_message_toolong" : "Limite de caractères atteinte",
+    "contact_button": "Envoyer",
+    "contact_button_error": "Vous avez déjà envoyé un mail avec cette adresse"
+}

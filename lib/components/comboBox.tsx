@@ -1,5 +1,6 @@
 import { useState } from "react"
 import CollapseArrowDownIcon from "../icons/downArrow"
+import { useTranslation } from "next-i18next";
 
 type ComboBoxType = {
     label: string
@@ -11,6 +12,7 @@ type ComboBoxType = {
 }
 
 const ComboBox = ({label, data, selected, setSelected, setPage} : ComboBoxType) => {
+    const { t } = useTranslation('gallery')
     const [show, setShow] = useState(false)
     
     return (
@@ -30,14 +32,14 @@ const ComboBox = ({label, data, selected, setSelected, setPage} : ComboBoxType) 
         {data.map((value, idx) => (
             <p 
                 key={idx} 
-                className={`text-black m-1 text-[0.8rem] inline-block bg-white border-b ${value === selected ? 'border-black  hover:cursor-default':'border-transparent hover:cursor-pointer'} hover:border-black`} 
+                className={`text-black m-1 text-[0.8rem] inline-block bg-white border-b ${t(value) === t(selected) ? 'border-black  hover:cursor-default':'border-transparent hover:cursor-pointer'} hover:border-black`} 
                 onClick={() => {
                     setSelected(value)
                     setShow(false)
                     setPage(1)
                 }}
             >
-                {value}
+                {t(value)}
             </p>
         ))}
     </div>
