@@ -2,7 +2,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { ToastContainer, toast } from "react-toastify";
 import LeftArrow from "@/lib/icons/leftArrow";
-import { useState } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { useCart } from "@/context/cartContext";
 import * as PaintingsService from '@/services/paintings.service'
 import { getStaticPropsWithTranslations } from '@/hoc/serverSideProps';
@@ -34,13 +34,15 @@ const PaintingId = () => {
    const [painting, setPainting] = useState<PaintingType>()
    const {addToCart, checkIfAdded, removeFromCart} = useCart()
 
-    const fetchPainting = async () => {
-      if (!router.query.id) return
-      const paint = await PaintingsService.getById(Number(router.query.id))
-      setPainting(paint)
-    }
+   const fetchPainting = useCallback(async () => {
+    if (!router.query.id) return
+    const paint = await PaintingsService.getById(Number(router.query.id))
+    setPainting(paint)
+ },[router.query])
 
+ useEffect(() => {
     fetchPainting()
+ },[fetchPainting])
 
    const translateTechnique = (technique: string) => {
       switch (technique) {
