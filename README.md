@@ -48,7 +48,7 @@ The technologies used to build this project include:
    └─ services        # Following the controller, it's where we insert logic before entering the repository
 ├── lib/              # For reusable components of the application
 ├── pages/            # Contains pages of the application
-├── public/           # For pictures and icons
+├── public/           # For pictures, icons and translation using i18n
 ├── schemas/          # Schemas done using Zod
 ├── services/         # To call the backend using Axios
 ├── styles/           # for the CSS files
