@@ -100,7 +100,7 @@ npm run dev
 ```
 Open a new one at the same time, go to the functions folder and run the same command.
 
-7.For jest testing
+7. For jest testing
 
 If you want to run the jest files, simply run 
 ```bash
