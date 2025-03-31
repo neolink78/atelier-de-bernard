@@ -31,12 +31,14 @@ The technologies used to build this project include:
  - ImageKit.io : Chosen for optimizing and delivering images efficiently 
  - js-cookie : Used for managing session data in cookies
  - react-toastify: Provides beautiful and customizable toast notifications for better UX.
+ - Jest: For testing important data flows
     
 
 ## Folder structure
 
 ```
-├── components/       # Non reusable componants ta coulb called in differents places or placed here for better readability
+├── __tests__/        # For Jest files
+├── components/       # Non reusable components that could be called in differents places or placed here for better readability
 ├── context/          # Here used for the cart to see the number of items in it while navigating through pages
 ├── functions/        # Backend side
   └─ prisma /         # Orm files
@@ -97,4 +99,11 @@ npm install
 npm run dev
 ```
 Open a new one at the same time, go to the functions folder and run the same command.
+
+7.For jest testing
+
+If you want to run the jest files, simply run 
+```bash
+npm test
+```
 
