@@ -12,5 +12,6 @@
     "contact_message_tooshort" : "Veuillez taper au moins 5 caractères",
     "contact_message_toolong" : "Limite de caractères atteinte",
     "contact_button": "Envoyer",
-    "contact_button_error": "Vous avez déjà envoyé un mail avec cette adresse"
+    "contact_button_error": "Vous avez déjà envoyé un mail avec cette adresse",
+    "contact_message_sent": "Votre message a bien été envoyé"
 }

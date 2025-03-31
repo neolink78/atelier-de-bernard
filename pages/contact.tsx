@@ -5,6 +5,7 @@ import { post } from '../services/contacts.service'
 import { useState } from "react"
 import { getStaticPropsWithTranslations } from '@/hoc/serverSideProps';
 import { useTranslation } from "next-i18next";
+import { ToastContainer, toast } from "react-toastify";
 
 export const getStaticProps = getStaticPropsWithTranslations()
 
@@ -19,10 +20,16 @@ const Contact = () => {
         resolver: zodResolver(schema)
     })
 
-    const onSubmit = async (data: FormSchema) => {
-       const test = await post(data)
-       if (test.status === 500) setErrorButton(test.response.data.error)
+    const onSubmit = async (values: FormSchema) => {
+       const {response, status}: any = await post(values)
+       if (status === 500) setErrorButton(response.data.error)
        else if (errorButton !== null) setErrorButton(null)
+    if (status === 200) toast.success(t("contact_message_sent"), {
+        position: "bottom-right",
+        autoClose: 4000,
+        pauseOnHover: false,
+        theme: "dark",
+        });
     }
 
     return(
@@ -30,8 +37,9 @@ const Contact = () => {
             <p className="flex justify-center text-center w-4xl">{t("contact_header")}</p>
             <form onSubmit={handleSubmit(onSubmit)} className='relative flex flex-col gap-5 sm:gap-10 max-w-sm mx-auto mt-8 px-9'>
                 <div>
-                    <label className="flex justify-center sm:block sm:ml-2">{t('contact_name')}</label>
+                    <label htmlFor="firstname" className="flex justify-center sm:block sm:ml-2">{t('contact_name')}</label>
             <input 
+            id="firstname"
             type="text"
             {...register('firstname')}
             className="border text-sm rounded-lg w-full p-2.5 mt-1 text-black" 
@@ -39,8 +47,9 @@ const Contact = () => {
             {errors.firstname && <p className="absolute mt-1 text-red-900 text-sm">{t(errors.firstname.message as string)}</p>}
                 </div>
                 <div>
-                    <label className="flex justify-center sm:block sm:ml-2">{t("contact_lastname")}</label>
+                    <label htmlFor="lastname" className="flex justify-center sm:block sm:ml-2">{t("contact_lastname")}</label>
             <input 
+            id="lastname"
             type="text"
             {...register('lastname')}
             className="border text-sm rounded-lg w-full p-2.5 mt-1 text-black"
@@ -48,8 +57,9 @@ const Contact = () => {
             {errors.lastname && <p className="absolute mt-1 text-red-900 text-sm">{t(errors.lastname.message as string)}</p>}
                 </div>
                 <div>
-                    <label className="flex justify-center sm:block sm:ml-2">Email</label>
+                    <label htmlFor="mail" className="flex justify-center sm:block sm:ml-2">Email</label>
             <input 
+            id="mail"
             type="email"
             {...register('mail')}
             className="border text-sm rounded-lg w-full p-2.5 mt-1 text-black"
@@ -57,9 +67,9 @@ const Contact = () => {
             {errors.mail && <p className="absolute mt-1 text-red-900 text-sm">{t(errors.mail.message as string)}</p>}
                 </div>
                 <div>
-                    <label className="flex justify-center sm:block sm:ml-2">Message</label>
+                    <label htmlFor="message" className="flex justify-center sm:block sm:ml-2">Message</label>
            <textarea 
-           
+           id="message"
            {...register("message")}
            rows={4}
            className="border text-sm rounded-lg w-full p-2.5 mt-1 h-48 resize-none text-black"
@@ -73,6 +83,7 @@ const Contact = () => {
                 </button>
                 {errorButton && <p className="absolute mt-1 top-full text-red-900 text-sm">{t(errorButton)}</p>}
             </form>
+            <ToastContainer />
         </div>
     )
 }
