@@ -12,5 +12,6 @@
     "contact_message_tooshort" : "Please type atleast 5 characters",
     "contact_message_toolong" : "Character limit reached",
     "contact_button": "Send",
-    "contact_button_error": "You already sent us a mail with this address"
+    "contact_button_error": "You already sent us a mail with this address",
+    "contact_message_sent": "Your mail has been sent"
 }
