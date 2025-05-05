@@ -46,7 +46,7 @@ const Gallery = () => {
     window.scrollTo({top: 0, behavior: 'smooth'})
   },[page])
 
-    return(
+    return (
         <>
         <div className="flex justify-center sm:justify-end sm:mr-24 gap-3">
         <p className="mt-7 hidden sm:block ">{t('combobox_orderby')}</p>
