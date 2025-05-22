@@ -16,6 +16,6 @@ export const getCookies = () => {
 }
 
 export const setCookies = (cart: CartItem[]) => {
-   if( cart.length > 0) Cookies.set("cart", JSON.stringify(cart), {expires: 2})
+    if (cart.length > 0) Cookies.set("cart", JSON.stringify(cart), { expires: 2 })
     else Cookies.remove("cart")
 }
